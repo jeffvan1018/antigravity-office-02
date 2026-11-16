@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Godot 4+
+.godot/
+antigravity-office/android/
+/android/
+*.translation
+
+# Godot exported builds
+antigravity-office/bin/
+*.pck
+*.dmg
+
+# Godot C# / .NET (if enabled)
+.mono/
+data_*/
+mono_crash.*.json
+
+# Python (creative skill scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Editors & IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs & temporary files
+*.log
+*.tmp

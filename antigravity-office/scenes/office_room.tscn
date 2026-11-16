@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://btbnsryyqryku"]
+
+[ext_resource type="Texture2D" uid="uid://cb814pdlg0ljv" path="res://assets/backgrounds/google-office.png" id="1_h3jde"]
+[ext_resource type="Script" path="res://scenes/command_prompt.gd" id="2_cmdpt"]
+
+[node name="OfficeRoom" type="Node2D" unique_id=268295570]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1986228945]
+texture = ExtResource("1_h3jde")
+centered = false
+
+[node name="CommandPromptLayer" type="CanvasLayer" parent="."]
+
+[node name="PromptBar" type="ColorRect" parent="CommandPromptLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -178.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_cmdpt")
+
+[node name="MarginContainer" type="MarginContainer" parent="CommandPromptLayer/PromptBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CommandPromptLayer/PromptBar/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OutputLog" type="RichTextLabel" parent="CommandPromptLayer/PromptBar/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/normal_font_size = 18
+scroll_following = true
+
+[node name="InputRow" type="HBoxContainer" parent="CommandPromptLayer/PromptBar/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PromptPrefix" type="Label" parent="CommandPromptLayer/PromptBar/MarginContainer/VBoxContainer/InputRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 1, 0.4, 1)
+theme_override_font_sizes/font_size = 20
+text = "> "
+
+[node name="CommandInput" type="LineEdit" parent="CommandPromptLayer/PromptBar/MarginContainer/VBoxContainer/InputRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.4, 1, 0.4, 1)
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Type a command..."
+flat = true
